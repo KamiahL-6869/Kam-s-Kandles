@@ -2,38 +2,94 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>KAM'S KANDLES</title>
-    <div class="banner">
-    <style>
-      .banner {
-        background-image: url("Earthy Brown Logo-Kam's Kandles.png");
-        width:970px;
-        height:250px;
-        border: solid;
-        border-color:Bisque;
-        border-radius: 4rem;
-        border-width: 5px;
-        margin:auto;
-      }
-      body{
-            margin:0;
-            font-family: Inter, 'Comic Sans MS', sans-serif;
-            background: linear-gradient(180deg,var(--bg),#3f4456);
-            color: var(--lavender);
-            padding:28px;
-            display:flex;
-            justify-content:center;
-        }
-      .page{
-            width:100%;
-            max-width:var(--max-width);
-            border:10px solid var(--space-white);
-            border-radius:10px;
-            background: linear-gradient(180deg, rgba(46,41,78,0.98), rgba(75,82,103,0.95));
-            padding:28px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-        }
-    </style>
-    </div>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f8f5ef">
+    <meta name="description" content="Small-batch candles made to bring warmth and calm to your everyday rituals.">
+    <title>Kam’s Kandles — Light a little slower</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
   </head>
+  <body>
+    <main class="page">
+      <header class="site-header">
+        <a class="banner" href="#home" aria-label="Kam’s Kandles home"><img src="./Earthy%20Brown%20Logo-Kam%27s%20Kandles.png" alt="Kam’s Kandles"></a>
+        <nav class="nav" aria-label="Main navigation">
+          <a href="#candles">The candles</a>
+          <a href="#about">Our approach</a>
+          <a class="nav-contact" href="mailto:hello@kamskandles.com">Say hello <span aria-hidden="true">↗</span></a>
+          <button class="cart-toggle" type="button" aria-controls="shopping-cart" aria-expanded="false">Bag <span class="cart-count" id="cartCount" aria-live="polite" aria-atomic="true">0</span></button>
+        </nav>
+      </header>
+
+      <section class="hero" id="home" aria-labelledby="hero-title">
+        <p class="eyebrow">Poured with care · Made for home</p>
+        <h1 id="hero-title">A softer kind<br>of <em>glow.</em></h1>
+        <p class="hero-copy">Small-batch candles for slow mornings, quiet evenings, and all the little moments in between.</p>
+        <a class="button" href="#candles">Meet your candle <span aria-hidden="true">↓</span></a>
+      </section>
+
+      <section class="collection" id="candles" aria-labelledby="collection-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">The little collection</p>
+            <h2 id="collection-title">Find your kind of calm.</h2>
+          </div>
+          <p class="section-note">Three cozy scents. One simple ritual.</p>
+        </div>
+        <div class="products">
+          <article class="product-card">
+            <div class="product-art art-fig" aria-hidden="true"><div class="candle"><span></span></div></div>
+            <div class="product-info"><div><h3>Fig &amp; Cedar</h3><p>Warm woods · Soft fruit</p></div><span class="price">$24</span></div>
+            <button class="add-to-cart" type="button" data-id="fig" data-name="Fig & Cedar" data-price="24">Add to bag</button>
+          </article>
+          <article class="product-card">
+            <div class="product-art art-vanilla" aria-hidden="true"><div class="candle"><span></span></div></div>
+            <div class="product-info"><div><h3>Vanilla Dusk</h3><p>Sweet cream · Amber</p></div><span class="price">$24</span></div>
+            <button class="add-to-cart" type="button" data-id="vanilla" data-name="Vanilla Dusk" data-price="24">Add to bag</button>
+          </article>
+          <article class="product-card">
+            <div class="product-art art-sage" aria-hidden="true"><div class="candle"><span></span></div></div>
+            <div class="product-info"><div><h3>Garden Still</h3><p>Green leaves · Fresh air</p></div><span class="price">$24</span></div>
+            <button class="add-to-cart" type="button" data-id="garden" data-name="Garden Still" data-price="24">Add to bag</button>
+          </article>
+        </div>
+      </section>
+
+      <aside class="cart-panel" id="shopping-cart" aria-labelledby="cart-title" aria-modal="true" role="dialog" hidden>
+        <div class="cart-header">
+          <div><p class="eyebrow">Your little collection</p><h2 id="cart-title">Shopping bag</h2></div>
+          <button class="cart-close" type="button" aria-label="Close shopping bag">×</button>
+        </div>
+        <div class="cart-content" id="cartContent">
+          <p class="cart-empty">Your bag is waiting for a little warmth.</p>
+        </div>
+        <div class="cart-summary" id="cartSummary" hidden>
+          <p><span>Subtotal</span><strong id="cartSubtotal">$0.00</strong></p>
+          <p class="shipping-note">Shipping and taxes calculated at checkout.</p>
+          <button class="checkout-button" id="checkoutButton" type="button">Continue to checkout</button>
+        </div>
+        <form class="checkout-form" id="checkoutForm" hidden>
+          <h3>Delivery details</h3>
+          <label>Full name<input name="name" autocomplete="name" required></label>
+          <label>Email address<input name="email" type="email" autocomplete="email" required></label>
+          <label>Shipping address<input name="address" autocomplete="street-address" required></label>
+          <p class="shipping-note">Demo checkout only—no payment will be collected.</p>
+          <button class="checkout-button" type="submit">Place demo order</button>
+        </form>
+        <p class="order-confirmation" id="orderConfirmation" role="status" hidden></p>
+      </aside>
+      <button class="cart-backdrop" type="button" aria-label="Close shopping bag" hidden></button>
+
+      <section class="about" id="about">
+        <span class="about-mark" aria-hidden="true">✳</span>
+        <div><p class="eyebrow">A little more intention</p><h2>Made slowly.<br>Enjoyed every day.</h2></div>
+        <p class="about-copy">Thoughtful scents, a warm flicker, and a moment to yourself. That’s what we make room for.</p>
+      </section>
+
+      <footer class="footer">
+        <p>Kam’s Kandles <span>·</span> Made with a little extra care.</p>
+        <p class="clock">Central time <time id="currentTime"></time></p>
+      </footer>
+    </main>
+  </body>
+</html>
